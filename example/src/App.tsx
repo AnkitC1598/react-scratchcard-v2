@@ -1,10 +1,23 @@
 import React from 'react'
 
-import { ExampleComponent } from 'react-scratchcard-v2'
-import 'react-scratchcard-v2/dist/index.css'
+import ScratchCard from 'react-scratchcard-v2'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  return (
+    <div>
+      <ScratchCard
+        width={320}
+        height={226}
+        image={'https://images.app.goo.gl/jJJ6xpSoxFvQK8jH7'}
+        finishPercent={80}
+        onComplete={() => console.log("complete")}
+      >
+        <div style={{display: 'flex', width: '100%', height: '100%', alignItems: 'center', justifyContent: 'center'}}>
+         <h1>Scratch card</h1>
+        </div>
+      </ScratchCard>
+    </div>
+  )
 }
 
 export default App
