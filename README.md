@@ -13,13 +13,20 @@ This is a clone of https://github.com/aleksik/react-scratchcard
 - Change brush size through props
 - Use custom brush throught props
 
+## Demo
+
+![scratchcard-demo](https://user-images.githubusercontent.com/22329040/140519100-b6ee86e3-0009-4ab6-bcd0-c7fefdb8720d.gif)
+
 ## Install
 
 ```bash
 npm install --save react-scratchcard-v2
+```
 or
+```bash
 yarn add react-scratchcard-v2 
 ```
+
 
 ## Usage
 
