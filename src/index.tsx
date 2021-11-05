@@ -10,8 +10,9 @@ interface Props {
   height: number
   image: any
   finishPercent: number
-  onComplete: () => void
-  children: any
+  onComplete?: () => void
+  brushSize?: number
+  children?: any
 }
 
 interface State {
@@ -141,7 +142,7 @@ class Scratch extends Component<Props, State> {
       y = this.lastPoint ? this.lastPoint.y + Math.cos(angle) * i : 0
       this.ctx.globalCompositeOperation = 'destination-out'
       this.ctx.beginPath()
-      this.ctx.arc(x, y, 15, 0, 2 * Math.PI, false)
+      this.ctx.arc(x, y, this.props.brushSize || 15, 0, 2 * Math.PI, false)
       this.ctx.fill()
     }
 
