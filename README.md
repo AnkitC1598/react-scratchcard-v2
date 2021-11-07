@@ -115,16 +115,17 @@ const App = () => {
 
 ### Props
 
-| **name**        | **type**        | **default** |
-|-----------------|-----------------|-------------|
-| width           | number          |             |
-| height          | number          |             |
-| image           | File or Base64  |             |
-| finishPercent   | ?number         | 70          |
-| brushSize       | ?number         | 20          |
-| onComplete      | ?callback       |             |
-| customBrush     | ?CustomBrush    |             |
-| customCheckZone | ?CustomCheckZone|             |
+| **name**          | **type**        | **default** |
+|-------------------|-----------------|-------------|
+| width             | number          |             |
+| height            | number          |             |
+| image             | File or Base64  |             |
+| finishPercent     | ?number         | 70          |
+| brushSize         | ?number         | 20          |
+| fadeOutOnComplete | ?boolean        | true        |
+| onComplete        | ?callback       |             |
+| customBrush       | ?CustomBrush    |             |
+| customCheckZone   | ?CustomCheckZone|             |
 
 
 ### CustomBrush
