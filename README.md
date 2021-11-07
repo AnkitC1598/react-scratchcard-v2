@@ -9,9 +9,11 @@
 This is a clone of https://github.com/aleksik/react-scratchcard
 ##### Improvement:
 - Resize the image using width and height props (in the original repo, the image was croped)
-- Type definition
+- Smooth fade out animation on scratch complete
+- Add type definition (ts)
 - Change brush size through props
-- Use custom brush throught props
+- Use custom brush through props
+- Define a custom check zone through props
 
 ## Demo
 
@@ -31,10 +33,10 @@ yarn add react-scratchcard-v2
 ## Usage
 
 ```tsx
-import React from 'react'
-import ScratchCard from 'react-scratchcard-v2'
+import React from 'react';
+import ScratchCard from 'react-scratchcard-v2';
 
-import * as IMG from './img.jpg'
+import * as IMG from './img.jpg';
 
 const App = () => {
   return (
@@ -58,8 +60,8 @@ const App = () => {
         </div>
       </ScratchCard>
     </div>
-  )
-}
+  );
+};
 ```
 
 ### Custom brush
@@ -79,12 +81,35 @@ const App = () => {
           height: 15
         }}
       >
-       <h1>Scratch card</h1>
+        <h1>Scratch card</h1>
+      </ScratchCard>
+    </div>
+  );
+};
+```
+
+or you can use CUSTOM_BRUSH_PRESET object
+
+```tsx
+import { CUSTOM_BRUSH_PRESET } from 'react-scratchcard-v2';
+
+const App = () => {
+  return (
+    <div>
+      <ScratchCard
+        width={320}
+        height={226}
+        image={IMG}
+        finishPercent={80}
+        customBrush={CUSTOM_BRUSH_PRESET}
+      >
+        <h1>Scratch card</h1>
       </ScratchCard>
     </div>
   )
 }
 ```
+
 
 ## Type
 
