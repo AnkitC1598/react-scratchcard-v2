@@ -90,15 +90,16 @@ const App = () => {
 
 ### Props
 
-| **name**      | **type**       | **default** |
-|---------------|----------------|-------------|
-| width         | number         |             |
-| height        | number         |             |
-| image         | File or Base64 |             |
-| finishPercent | ?number        | 70          |
-| brushSize     | ?number        | 20          |
-| onComplete    | ?callback      |             |
-| customBrush   | ?CustomBrush   |             |
+| **name**        | **type**        | **default** |
+|-----------------|-----------------|-------------|
+| width           | number          |             |
+| height          | number          |             |
+| image           | File or Base64  |             |
+| finishPercent   | ?number         | 70          |
+| brushSize       | ?number         | 20          |
+| onComplete      | ?callback       |             |
+| customBrush     | ?CustomBrush    |             |
+| customCheckZone | ?CustomCheckZone|             |
 
 
 ### CustomBrush
@@ -108,6 +109,16 @@ const App = () => {
 | width    | number         |
 | height   | number         |
 | image    | File or Base64 |
+
+### CustomCheckZone
+
+| **name** | **type**       |
+|----------|----------------|
+| x        | number         |
+| y        | number         |
+| width    | number         |
+| height   | number         |
+
 
 
 ## License
