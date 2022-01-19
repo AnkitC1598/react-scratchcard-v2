@@ -1,12 +1,20 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import ScratchCard, { CUSTOM_BRUSH_PRESET } from 'react-scratchcard-v2'
 
 import * as IMG from './img.jpg'
 
 const App = () => {
+  const ref = useRef<ScratchCard>(null);
+
+  const onClickReset = () => {
+    ref.current && ref.current.reset();
+  }
+
   return (
     <div>
+      <button onClick={onClickReset}>Reset</button>
       <ScratchCard
+        ref={ref}
         width={320}
         height={226}
         image={IMG}

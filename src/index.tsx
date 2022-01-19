@@ -41,11 +41,13 @@ class Scratch extends Component<Props, State> {
 
   lastPoint: Point | null = null
 
-  ctx?: any
+  ctx: CanvasRenderingContext2D;
 
   canvas!: HTMLCanvasElement
 
   brushImage?: any
+
+  image: HTMLImageElement
 
   constructor(props: Props) {
     super(props);
@@ -55,16 +57,16 @@ class Scratch extends Component<Props, State> {
   componentDidMount() {
     this.isDrawing = false;
     this.lastPoint = null;
-    this.ctx = this.canvas.getContext('2d');
+    this.ctx = this.canvas.getContext('2d') as CanvasRenderingContext2D;
 
-    const image = new Image();
-    image.crossOrigin = 'Anonymous';
-    image.onload = () => {
-      this.ctx.drawImage(image, 0, 0, this.props.width, this.props.height);
+    this.image = new Image();
+    this.image.crossOrigin = 'Anonymous';
+    this.image.onload = () => {
+      this.ctx.drawImage(this.image, 0, 0, this.props.width, this.props.height);
       this.setState({ loaded: true });
     };
 
-    image.src = this.props.image;
+    this.image.src = this.props.image;
 
     if (this.props.customBrush) {
       this.brushImage = new Image(
@@ -73,6 +75,12 @@ class Scratch extends Component<Props, State> {
       );
       this.brushImage.src = this.props.customBrush.image;
     }
+  }
+
+  reset = () => {
+    this.canvas.style.opacity = '1';
+    this.ctx.globalCompositeOperation = 'source-over';
+    this.ctx.drawImage(this.image, 0, 0, this.props.width, this.props.height);
   }
 
   getFilledInPixels(stride: number) {
@@ -103,6 +111,7 @@ class Scratch extends Component<Props, State> {
     let count = 0;
 
     for (let i = 0; i < pixels.data.length; i += stride) {
+      // @ts-ignore
       if (parseInt(pixels.data[i], 10) === 0) {
         count++;
       }

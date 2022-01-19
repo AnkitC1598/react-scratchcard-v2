@@ -33,14 +33,22 @@ yarn add react-scratchcard-v2
 ## Usage
 
 ```tsx
-import React from 'react';
+import React, { useRef }  from 'react';
 import ScratchCard from 'react-scratchcard-v2';
 
 import * as IMG from './img.jpg';
 
 const App = () => {
+    
+  const ref = useRef<ScratchCard>(null);
+
+  const onClickReset = () => {
+    ref.current && ref.current.reset();
+  }
+
   return (
     <div>
+      <button onClick={onClickReset}>Reset</button>
       <ScratchCard
         width={320}
         height={226}
@@ -126,7 +134,6 @@ const App = () => {
 | onComplete        | ?callback       |             |
 | customBrush       | ?CustomBrush    |             |
 | customCheckZone   | ?CustomCheckZone|             |
-
 
 ### CustomBrush
 
